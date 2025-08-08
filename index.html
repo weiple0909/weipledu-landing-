@@ -63,8 +63,24 @@
     .hero-cta { display:flex; gap:12px; flex-wrap: wrap; }
     .hero-card { background: var(--black); color: var(--white); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); }
     .hero-card strong { color: var(--yellow); }
-    .hero-illus { position: relative; border-radius: var(--radius); background: linear-gradient(135deg, var(--yellow) 0%, #ffd54f 100%); min-height: 320px; box-shadow: var(--shadow); }
-    .hero-illus::after { content:""; position:absolute; inset: 20px; border-radius: 20px; border: 3px dashed rgba(17,17,17,.28); }
+    .hero-illus { 
+      position: relative; 
+      border-radius: var(--radius); 
+      background: linear-gradient(135deg, var(--yellow) 0%, #ffd54f 100%); 
+      min-height: 320px; 
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .hero-illus img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: calc(var(--radius) - 2px);
+      transition: transform 0.3s ease;
+    }
+    .hero-illus:hover img {
+      transform: scale(1.02);
+    }
 
     /* Badges */
     .badges { display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px; }
@@ -89,7 +105,6 @@
     .profile { display:grid; grid-template-columns: .88fr 1.12fr; gap: 28px; }
     .profile .panel { border:1px solid var(--gray-200); border-radius: var(--radius); padding: 22px; }
     .profile .photo { background: linear-gradient(145deg, #fff5cc, #ffffff); border-radius: var(--radius); display:flex; align-items:center; justify-content:center; min-height: 240px; border:1px dashed #e5cf85; }
-    .list { padding-left: 18px; }
 
     /* Testimonials */
     .testimonials { display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
@@ -105,6 +120,7 @@
     .input:focus { outline: 2px solid #ffe082; border-color: var(--yellow-strong); }
     label { font-weight: 700; font-size: 14px; }
     .help { font-size: 12px; color: var(--gray-500); }
+    .list { padding-left: 18px; }
 
     /* Footer */
     footer { padding: 32px 0 64px; border-top: 1px solid var(--gray-200); background: #fffef6; }
@@ -176,7 +192,9 @@
           <span class="badge">강의+코칭 패키지</span>
         </div>
       </div>
-      <div class="hero-illus" role="img" aria-label="따뜻하고 안정감 있는 노란색 톤의 브랜드 일러스트 배경"></div>
+      <div class="hero-illus" role="img" aria-label="AI 교육을 상징하는 이미지">
+        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="AI와 교육을 상징하는 디지털 기술 이미지" loading="lazy" />
+      </div>
     </div>
     <div class="container hero-card" aria-hidden>
       <div><strong>Tip.</strong> <span class="mini">상담 신청 후 24시간 이내 답변. <span class="kbd">카카오톡</span> 실시간 문의 가능.</span></div>
@@ -245,7 +263,7 @@
         </div>
       </div>
       <div class="panel">
-        <h3 style="margin-top:0;">“어려운 지식을 쉽게, 현장에서 바로 쓰이게.”</h3>
+        <h3 style="margin-top:0;">"어려운 지식을 쉽게, 현장에서 바로 쓰이게."</h3>
         <p style="margin-top:4px; color:var(--gray-700)">인공지능을 교육의 언어로 번역해, 학습자의 <strong>문제 해결</strong>에 집중합니다. 핵심만 선별하고, 따라 하면 되는 <strong>실습 중심</strong>으로 설계합니다.</p>
         <ul class="list">
           <li><strong>13년 교육·HR 경력</strong> — 기업·대학·지자체 다수 프로젝트</li>
@@ -273,19 +291,19 @@
     <div class="testimonials">
       <figure class="quote">
         <blockquote>
-          “팀 과제를 <span class="highlight">AI 워크플로우</span>로 재설계하면서 보고서 품질이 확 달라졌습니다. 강의도 좋았지만 <strong>사전 진단</strong>과 <strong>개별 피드백</strong>이 특히 도움이 됐어요.”
+          "팀 과제를 <span class="highlight">AI 워크플로우</span>로 재설계하면서 보고서 품질이 확 달라졌습니다. 강의도 좋았지만 <strong>사전 진단</strong>과 <strong>개별 피드백</strong>이 특히 도움이 됐어요."
         </blockquote>
         <figcaption class="who"><span class="avatar">A</span> 대기업 HR담당자 / 사내 러닝팀</figcaption>
       </figure>
       <figure class="quote">
         <blockquote>
-          “비전공자 직원들도 <span class="highlight">쉽게 따라</span> 할 수 있게 안내해 주셔서, 마케팅 리포트 작성 시간이 40% 줄었습니다. 따뜻하지만 칼 같은 <strong>실무 코칭</strong>이 인상적이었어요.”
+          "비전공자 직원들도 <span class="highlight">쉽게 따라</span> 할 수 있게 안내해 주셔서, 마케팅 리포트 작성 시간이 40% 줄었습니다. 따뜻하지만 칼 같은 <strong>실무 코칭</strong>이 인상적이었어요."
         </blockquote>
         <figcaption class="who"><span class="avatar">B</span> 중견기업 마케팅팀 / 매니저</figcaption>
       </figure>
       <figure class="quote">
         <blockquote>
-          “대학생 대상 비교과 프로그램에서 프로젝트 <strong>포트폴리오</strong>까지 완성! 취업 준비에 큰 자신감을 얻었습니다. 이후에도 <span class="highlight">후속 코칭</span>을 챙겨주셔서 감사해요.”
+          "대학생 대상 비교과 프로그램에서 프로젝트 <strong>포트폴리오</strong>까지 완성! 취업 준비에 큰 자신감을 얻었습니다. 이후에도 <span class="highlight">후속 코칭</span>을 챙겨주셔서 감사해요."
         </blockquote>
         <figcaption class="who"><span class="avatar">C</span> ○○대학교 경영학과 / 4학년</figcaption>
       </figure>
